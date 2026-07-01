@@ -4,6 +4,21 @@
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+// Dark Mode (Startzustand setzt das Inline-Skript im <head>)
+const themeToggle = document.getElementById('themeToggle');
+if (themeToggle) {
+  const updateLabel = () => {
+    const dark = document.documentElement.classList.contains('dark-mode');
+    themeToggle.setAttribute('aria-label', dark ? 'Hellen Modus einschalten' : 'Dunklen Modus einschalten');
+  };
+  updateLabel();
+  themeToggle.addEventListener('click', () => {
+    const dark = document.documentElement.classList.toggle('dark-mode');
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+    updateLabel();
+  });
+}
+
 // Header-Schatten beim Scrollen
 const header = document.querySelector('.site-header');
 const onScroll = () => {

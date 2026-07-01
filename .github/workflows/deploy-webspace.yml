@@ -1,0 +1,50 @@
+name: Deploy to Webspace (SFTP)
+
+on:
+  push:
+    branches:
+      - main
+      - claude/install-uiux-pro-max-skill-0ldlj5
+  workflow_dispatch:
+
+concurrency:
+  group: webspace
+  cancel-in-progress: true
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check secrets
+        id: check
+        run: |
+          if [ -z "${{ secrets.WEBSPACE_HOST }}" ] || [ -z "${{ secrets.WEBSPACE_USER }}" ] || [ -z "${{ secrets.WEBSPACE_PASSWORD }}" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "::notice::Webspace-Secrets fehlen (WEBSPACE_HOST/USER/PASSWORD) – Upload übersprungen."
+          fi
+
+      - name: Checkout
+        if: steps.check.outputs.skip != 'true'
+        uses: actions/checkout@v4
+
+      - name: Collect site files
+        if: steps.check.outputs.skip != 'true'
+        run: |
+          mkdir _site
+          cp -r index.html css js _site/
+
+      - name: Upload via SFTP
+        if: steps.check.outputs.skip != 'true'
+        env:
+          HOST: ${{ secrets.WEBSPACE_HOST }}
+          USER: ${{ secrets.WEBSPACE_USER }}
+          PASS: ${{ secrets.WEBSPACE_PASSWORD }}
+          REMOTE_PATH: ${{ secrets.WEBSPACE_PATH }}
+        run: |
+          sudo apt-get update -q && sudo apt-get install -yq lftp
+          lftp -u "$USER,$PASS" "sftp://$HOST" <<EOF
+          set sftp:auto-confirm yes
+          set net:max-retries 3
+          mirror -R --verbose --only-newer _site/ "${REMOTE_PATH:-.}"
+          quit
+          EOF

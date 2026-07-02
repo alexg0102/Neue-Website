@@ -746,6 +746,39 @@ a { color: inherit; }
 }
 .footer-top:hover { color: var(--color-primary); }
 
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--color-fg-muted);
+  text-decoration: none;
+}
+.footer-links a:hover { color: var(--color-primary); text-decoration: underline; text-underline-offset: 4px; }
+
+/* ============ Rechtliche Seiten ============ */
+
+.legal-page {
+  padding: 9rem 0 4rem;
+}
+.legal-page .container { max-width: 46rem; }
+.legal-page h1 { margin-bottom: 1.5rem; }
+.legal-page h2 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  margin: 2rem 0 0.6rem;
+}
+.legal-page p { margin: 0 0 1rem; max-width: 65ch; }
+.legal-page a { color: var(--color-primary); text-underline-offset: 3px; }
+.legal-updated { margin-top: 2.5rem; color: var(--color-fg-muted); font-size: 0.9rem; }
+
 /* ============ Scroll-Reveal ============ */
 
 .reveal {
@@ -794,6 +827,19 @@ a { color: inherit; }
   }
   .nav-menu.is-open { display: flex; }
   .nav-menu a { display: block; text-align: center; padding: 0.8rem 1rem; }
+
+  /* Statisches Menü der Unterseiten (kein Hamburger vorhanden) bleibt sichtbar */
+  .nav-menu-static {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    padding: 0;
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+  .nav-menu-static a { padding: 0.55rem 0.9rem; }
 
   .bento { grid-template-columns: 1fr; }
   .bento-wide { grid-column: auto; }

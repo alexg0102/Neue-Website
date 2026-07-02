@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Impressum — Alexander Graf</title>
+  <meta name="description" content="Impressum der Website von Alexander Graf.">
+  <meta name="robots" content="noindex">
+  <script>
+    // Theme vor dem ersten Rendern setzen, damit nichts aufblitzt
+    (function () {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark-mode');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%234F46E5'/><text x='50' y='68' font-size='52' font-family='sans-serif' font-weight='700' fill='white' text-anchor='middle'>AG</text></svg>">
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="nav-logo" href="index.html" aria-label="Zur Startseite">
+        <span class="nav-logo-badge">AG</span>
+        <span class="nav-logo-text">Alexander&nbsp;Graf</span>
+      </a>
+      <ul class="nav-menu nav-menu-static" id="nav-menu">
+        <li><a href="index.html">Zurück zur Startseite</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Dunklen Modus einschalten">
+          <svg class="icon-moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+          <svg class="icon-sun" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="legal-page">
+    <div class="container">
+      <p class="section-kicker">Rechtliches</p>
+      <h1 class="section-title">Impressum</h1>
+
+      <h2>Angaben gemäß § 5 DDG</h2>
+      <p>
+        Alexander Graf<br>
+        Mardieksweg 44<br>
+        37627 Stadtoldendorf<br>
+        Deutschland
+      </p>
+
+      <h2>Kontakt</h2>
+      <p>
+        E-Mail: <a href="mailto:agraf.stadtoldendorf@gmail.com">agraf.stadtoldendorf@gmail.com</a>
+      </p>
+
+      <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+      <p>
+        Alexander Graf<br>
+        Mardieksweg 44<br>
+        37627 Stadtoldendorf
+      </p>
+
+      <h2>Haftung für Inhalte</h2>
+      <p>
+        Die Inhalte dieser Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit,
+        Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden.
+      </p>
+
+      <h2>Haftung für Links</h2>
+      <p>
+        Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte kein
+        Einfluss besteht. Für diese fremden Inhalte wird deshalb keine Gewähr übernommen.
+        Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber
+        der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung
+        auf mögliche Rechtsverstöße überprüft; rechtswidrige Inhalte waren zu diesem Zeitpunkt
+        nicht erkennbar.
+      </p>
+
+      <h2>Urheberrecht</h2>
+      <p>
+        Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten
+        unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung
+        und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der
+        schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> Alexander Graf. Alle Rechte vorbehalten.</p>
+      <ul class="footer-links">
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

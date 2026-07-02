@@ -34,7 +34,7 @@ jobs:
       - name: Collect site files
         run: |
           mkdir _site
-          cp -r index.html css js _site/
+          cp -r index.html impressum.html datenschutz.html css js fonts _site/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -497,6 +497,7 @@ a { color: inherit; }
 }
 .bento-card p { margin: 0; color: var(--color-fg-muted); }
 .bento-wide { grid-column: span 2; }
+.bento-full { grid-column: 1 / -1; }
 .bento-accent {
   background: linear-gradient(135deg, var(--color-primary), #7C3AED);
   border: none;
@@ -524,6 +525,7 @@ a { color: inherit; }
   grid-template-columns: repeat(3, 1fr);
   gap: 1.4rem;
 }
+.projects-grid-2 { grid-template-columns: repeat(2, 1fr); }
 
 .project-card {
   display: flex;
@@ -580,6 +582,55 @@ a { color: inherit; }
 .project-link svg { transition: transform 0.2s var(--ease-out); }
 .project-link:hover svg { transform: translate(2px, -2px); }
 .project-link-muted { color: var(--color-fg-muted); cursor: default; }
+
+/* ============ Buchen / Angebote ============ */
+
+.service-card .project-body { gap: 0.85rem; }
+.service-card .project-body > p:first-of-type { flex: 1; }
+
+.service-card .project-body > .service-refs-title {
+  flex: none;
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+}
+
+.service-refs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+}
+.service-refs li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+}
+.service-refs li::before {
+  content: "✓";
+  flex: none;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+.service-refs-spark li::before { content: "✦"; color: var(--color-accent); }
+.service-refs-note li::before { content: "♪"; color: var(--color-teal); }
+
+.services-cta {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+.services-cta-text {
+  margin: 0 0 1.1rem;
+  color: var(--color-fg-muted);
+  font-size: 1.05rem;
+}
 
 /* ============ Kontakt ============ */
 
@@ -719,6 +770,7 @@ a { color: inherit; }
   .bento { grid-template-columns: 1fr 1fr; }
   .bento-wide { grid-column: span 2; }
   .projects-grid { grid-template-columns: 1fr 1fr; }
+  .services-grid > .service-card:last-child { grid-column: span 2; }
 }
 
 @media (max-width: 640px) {
@@ -746,6 +798,7 @@ a { color: inherit; }
   .bento { grid-template-columns: 1fr; }
   .bento-wide { grid-column: auto; }
   .projects-grid { grid-template-columns: 1fr; }
+  .services-grid > .service-card:last-child { grid-column: auto; }
   .hero-scroll { display: none; }
 }
 
@@ -799,6 +852,9 @@ a { color: inherit; }
 }
 
 .dark-mode .tag { background: rgba(129, 140, 248, 0.16); color: #A5B4FC; }
+.dark-mode .service-refs li::before { color: #A5B4FC; }
+.dark-mode .service-refs-spark li::before { color: #FDBA74; }
+.dark-mode .service-refs-note li::before { color: #5EEAD4; }
 .dark-mode .about-text strong { color: #A5B4FC; }
 .dark-mode .section-kicker { color: #A5B4FC; }
 .dark-mode .project-link { color: #A5B4FC; }
